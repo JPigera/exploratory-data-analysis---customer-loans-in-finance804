@@ -81,13 +81,40 @@ class RDSDatabaseConnector:
 
         data_frame = pd.DataFrame(data=loan_payments_table)
 
-        pd.set_option('display.max_rows', 4)
+        pd.set_option('display.max_rows', 30)
 
         pd.set_option('display.max_columns', None)
 
         print(data_frame)
         
         return
+    
+class DataTransform:
+
+    def __init__(self, loan_payments_table):
+
+        self.loan_payments_table = loan_payments_table
+
+    def check_id_unique(self):
+        
+        num_unique_ids = loan_payments_table['id'].nunique()
+
+        row_count = len(loan_payments_table)
+
+        if num_unique_ids == row_count:
+            print("All id's are unique")
+        else:
+            print("Not all of the id's are unique")
+
+        return
+
+    def str_to_int(self):
+
+        self.loan_payments_table['term'].str.replace('36 months', '36').astype(int)
+
+        return
+        
+
 
 '''
 Here we test the class by first running an instance of the class under the variable 'test' and the input of our locally stored credentials.yaml file
@@ -104,6 +131,12 @@ print(table_names) #view the table names
 
 loan_payments_table = test.extract_data(engine) #use the key to access the loan payments table
 
-test.save_data(loan_payments_table) #save the loan payments table to the csv file
+# test.show_data(loan_payments_table) # show a snippit of the data
 
-test.show_data(loan_payments_table) # show a snippit of the data
+# transform = DataTransform(loan_payments_table)
+
+# check_id = transform.check_id_unique()
+
+# term_months_into_years = transform.str_to_int()
+
+test.save_data(loan_payments_table) #save the loan payments table to the csv file
