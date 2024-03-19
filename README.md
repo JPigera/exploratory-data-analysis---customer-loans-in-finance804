@@ -30,10 +30,23 @@ Here is the heatmap output that it has created. From this we can clearly see whi
 
 I also used my own judgement to decide which columns to drop.
 
+From the following graph we can determine how home ownership is related to customer loans being charged off
+As we can see Customers who rent or have a mortgage are most likely to have their loans charged off.
+
+![alt text](image-2.png)
+
 ### File structure of the project
 
 db_utils.py is a python file that contains an RDS database connector class, that will extract data from the database and save it in a csv file
 df.csv is a csv that contains the saved loan payments data frame
 credentials.yaml is a locally saved file that is not pushed to github because there are confidential credentials to access the RDS database
+
+In the analysis class we are able to look at the data and answer key business intelligence questions and visualise the data
+We answer questions such as:
+Does the grade of the loan have effect on customers not paying?
+Is the purpose for the loan likely to have an effect?
+Does the home_ownership value contribute to the likelihood a customer won't pay?
+From this we can inform decisions for investors and management to determine the associated risk of giving loans to customers based on
+a variety of factors
 
 ### License information
