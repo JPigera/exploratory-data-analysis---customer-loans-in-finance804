@@ -48,5 +48,3 @@ Is the purpose for the loan likely to have an effect?
 Does the home_ownership value contribute to the likelihood a customer won't pay?
 From this we can inform decisions for investors and management to determine the associated risk of giving loans to customers based on
 a variety of factors
-
-### License information
